@@ -36,43 +36,9 @@
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="./">首頁</a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li>
-                  <!-- Single button -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                      <h4>(會員名)~你好~~<span class="glyphicon glyphicon-user"></span><span class="caret"></span></h4>
-
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dLabel">
-                      <li><a href="#">更改密碼</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li><a href="login.html">登出</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
-  </nav>
+<?php 
+  include 'header.php';
+?>
 
 <!-- Page Content -->
 <div class="container">
@@ -88,15 +54,15 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" ><a href="#deposit" aria-controls="home" role="tab" data-toggle="tab">存款</a></li>
+      <li role="presentation"  class="active"><a href="#deposit" aria-controls="home" role="tab" data-toggle="tab">存款</a></li>
       <li role="presentation"><a href="#balance" aria-controls="profile" role="tab" data-toggle="tab">餘額</a></li>
       <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">日期</a></li> -->
-      <li role="presentation" class="active"><a href="#before_convenient" aria-controls="settings" role="tab" data-toggle="tab">曾經訂購便當</a></li>
+      <li role="presentation"><a href="#before_convenient" aria-controls="settings" role="tab" data-toggle="tab">曾經訂購便當</a></li>
     </ul>
 
     <div class="tab-content">
 <!-- 存款 -->
-      <div role="tabpanel" class="tab-pane" id="deposit"></br>
+      <div role="tabpanel" class="tab-pane active" id="deposit"></br>
         <table class="table table-hover ">
           <thead>
             <tr>
@@ -134,7 +100,7 @@
 <!-- 餘額 -->
 
 <!-- 曾經訂購過的便當 -->
-      <div role="tabpanel" class="tab-pane active" id="before_convenient"> </br>
+      <div role="tabpanel" class="tab-pane" id="before_convenient"> </br>
         <table class="table table-hover">
           <thead>
             <tr>

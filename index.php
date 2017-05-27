@@ -37,6 +37,7 @@
 
 
 <?php
+  session_start();
   
   include 'bcs/mysql/connect.php';//資料庫連線
   include 'todaymenu/todaymenu.php';//本日菜單的程式
@@ -70,44 +71,9 @@
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><?php echo $TodayStoreName; ?></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li>
-                    <!-- Single button -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                        <h4>(會員名)~你好~~<span class="glyphicon glyphicon-user"></span><span class="caret"></span></h4>
-
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dLabel">
-                        <li><a href="center.php">會員中心</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="login.html">登出</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+  <?php
+    include 'header.php';//上面的黑色那排
+   ?>
 
     <!-- Page Content -->
     <div class="container">
