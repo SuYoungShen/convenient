@@ -1,5 +1,8 @@
 <?php
   $ShowDeposit = json_decode($Deposit_Json, true);
+  // echo "<pre>";
+  // var_dump($Deposit_Json);
+  // echo "</pre>";
   foreach ($ShowDeposit as $key => $value) {
 
     // $MN = $value['MemberName'];//會員名
@@ -9,9 +12,9 @@
     if (isset($MD) && $MD!=0) {
       echo "
       <tr>
-      <td>(抓取會員名)</td>
-      <td>".$MD."</td>
-      <td>".$MMD."</td>
+        <td>(抓取會員名)</td>
+        <td>".$MD."</td>
+        <td>".$MMD."</td>
       </tr>
       ";
     }

@@ -36,7 +36,7 @@
 
 <body>
 
-<?php 
+<?php
   include 'header.php';
 ?>
 
@@ -54,15 +54,15 @@
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation"  class="active"><a href="#deposit" aria-controls="home" role="tab" data-toggle="tab">存款</a></li>
-      <li role="presentation"><a href="#balance" aria-controls="profile" role="tab" data-toggle="tab">餘額</a></li>
+      <li role="presentation"  ><a href="#deposit" aria-controls="home" role="tab" data-toggle="tab">存款</a></li>
+      <li role="presentation" class="active"><a href="#balance" aria-controls="profile" role="tab" data-toggle="tab">餘額</a></li>
       <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">日期</a></li> -->
       <li role="presentation"><a href="#before_convenient" aria-controls="settings" role="tab" data-toggle="tab">曾經訂購便當</a></li>
     </ul>
 
     <div class="tab-content">
 <!-- 存款 -->
-      <div role="tabpanel" class="tab-pane active" id="deposit"></br>
+      <div role="tabpanel" class="tab-pane" id="deposit"></br>
         <table class="table table-hover ">
           <thead>
             <tr>
@@ -81,13 +81,14 @@
 <!-- 存款 -->
 
 <!-- 餘額 -->
-      <div role="tabpanel" class="tab-pane" id="balance"></br>
+      <div role="tabpanel" class="tab-pane active" id="balance"></br>
         <table class="table table-hover">
           <thead>
             <tr>
               <th>姓名</th>
               <th>餘額</th>
               <th>日期</th>
+              <th>備註</th>
             </tr>
           </thead>
           <tbody>
@@ -110,6 +111,7 @@
               <th>數量</th>
               <th>總價</th>
               <th>日期</th>
+              <th>餘額</th>
             </tr>
           </thead>
           <tbody>

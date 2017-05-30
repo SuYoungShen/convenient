@@ -1,5 +1,4 @@
 <?php
-
   $Show_B_C = json_decode($BC_Json, true);//
 
   foreach ($Show_B_C as $key => $value) {//列出所有曾經訂購過的便當
@@ -10,7 +9,8 @@
     $SQuantity = $value["SQuantity"];//數量
     $STotal = $value["STotal"];//總價
     $SDatetimes = $value["SDatetimes"];//訂購日期
-    
+    $Balance = $value["Balance"];//訂購日期
+
     echo "
       <tr>
         <td>(抓取會員名)</td>
@@ -19,6 +19,7 @@
         <td>$SQuantity</td>
         <td>$STotal</td>
         <td>$SDatetimes</td>
+        <td>$Balance</td>
       </tr>
     ";
   }

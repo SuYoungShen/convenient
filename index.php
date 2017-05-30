@@ -38,7 +38,7 @@
 
 <?php
   session_start();
-  
+
   include 'bcs/mysql/connect.php';//資料庫連線
   include 'todaymenu/todaymenu.php';//本日菜單的程式
 
@@ -110,7 +110,7 @@
               <h3>選擇便當</h3>
               <div class="col-sm-8 col-xs-12">
                 <!-- Single button -->
-                <select class="selectpicker" data-style="btn-danger" name="CP"><!-- CP = convenient price-->
+                <select class="selectpicker" data-style="btn-danger" name="CP" title="請選擇"><!-- CP = convenient price-->
                   <optgroup label="便當+價位">
                     <?php
                       foreach ($ShowStoreIn as $key => $value) {

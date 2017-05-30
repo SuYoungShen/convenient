@@ -7,6 +7,7 @@ $cc= $_POST["password"];
 $a="SELECT * FROM members";
 $b=$db->query($a);
 $c=$b->fetchAll();
+
 foreach ($c as  $value) {
 
   if ($value["MemberAccount"] == $e && $value["MemberPassword"] == $cc )  {
