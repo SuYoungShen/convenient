@@ -30,7 +30,9 @@ $Before_Convenient = function($db){
               WHERE
                       s.SDatetimes = b.BDatetime
               AND
-                      s.SM='1'              
+                      s.SM = '1'
+              AND
+                      b.MemberID='1'
               AND
                       s.STodayStore = t.TodayID
               ";

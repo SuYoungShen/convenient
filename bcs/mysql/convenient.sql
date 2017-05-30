@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: localhost
--- 產生時間： 2017-05-27 05:35:30
+-- 產生時間： 2017-05-30 01:06:10
 -- 伺服器版本: 5.7.17-log
 -- PHP 版本： 5.6.30
 
@@ -40,9 +40,10 @@ CREATE TABLE `balance` (
 --
 
 INSERT INTO `balance` (`BalanceID`, `Balance`, `BDatetime`, `MemberID`) VALUES
-(9, 100, '0000-00-00 00:00:00', 1),
-(11, 50, '0000-00-00 00:00:00', 1),
-(12, 50, '0000-00-00 00:00:00', 6);
+(9, 100, '2017-05-01 00:00:00', 1),
+(11, 120, '2017-05-02 00:00:00', 1),
+(12, 100, '2017-05-03 00:00:00', 1),
+(13, 106, '2017-05-03 10:00:00', 6);
 
 -- --------------------------------------------------------
 
@@ -62,9 +63,9 @@ CREATE TABLE `deposit` (
 --
 
 INSERT INTO `deposit` (`DepositID`, `Deposit`, `DDatetime`, `MemberID`) VALUES
-(1, 100, '0000-00-00 00:00:00', 1),
-(2, 20, '0000-00-00 00:00:00', 1),
-(3, 3, '0000-00-00 00:00:00', 6);
+(1, 100, '2017-05-01 00:00:00', 1),
+(2, 20, '2017-05-02 00:00:00', 1),
+(3, 3, '2017-05-03 10:00:00', 6);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,6 @@ CREATE TABLE `members` (
   `MemberName` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `MemberAccount` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `MemberPassword` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `MemberLevel` enum('admin','member') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'member',
   `MemberDatetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
@@ -85,12 +85,9 @@ CREATE TABLE `members` (
 -- 資料表的匯出資料 `members`
 --
 
-INSERT INTO `members` (`MemberID`, `MemberName`, `MemberAccount`, `MemberPassword`, `MemberLevel`, `MemberDatetime`) VALUES
-(1, 'a', 'aa', 'aaa', 'member', '0000-00-00 00:00:00'),
-(6, 'b', 'bb', '', 'member', '0000-00-00 00:00:00'),
-(7, 'ㄋ', 'ssss', 'ssss', 'member', '0000-00-00 00:00:00'),
-(8, 'ㄇ', 'ㄇ', 'aa', 'member', '0000-00-00 00:00:00'),
-(9, '湧盛', 'young', 'young', 'admin', '0000-00-00 00:00:00');
+INSERT INTO `members` (`MemberID`, `MemberName`, `MemberAccount`, `MemberPassword`, `MemberDatetime`) VALUES
+(1, 'a', 'aa', 'aaa', '0000-00-00 00:00:00'),
+(6, 'b', 'bb', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -114,9 +111,9 @@ CREATE TABLE `selectmembers` (
 --
 
 INSERT INTO `selectmembers` (`SMID`, `SConvenient`, `SPrice`, `SQuantity`, `STotal`, `SM`, `STodayStore`, `SDatetimes`) VALUES
-(29, '雞排', 20, 0, 0, 1, 18, '0000-00-00 00:00:00'),
-(31, '雞腿', 20, 0, 0, 1, 20, '0000-00-00 00:00:00'),
-(32, '雞排', 20, 0, 0, 6, 21, '0000-00-00 00:00:00');
+(29, '雞排', 20, 0, 0, 6, 18, '2017-05-01 00:00:00'),
+(31, '雞腿', 20, 0, 0, 6, 20, '2017-05-02 00:00:00'),
+(32, '雞排', 20, 0, 0, 1, 21, '2017-05-03 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -142,7 +139,7 @@ CREATE TABLE `stores` (
 INSERT INTO `stores` (`StoreID`, `StoreName`, `StroePhone`, `StroeDescription`, `StorePic`, `StoreConvenient`, `SCPrice`, `StoreDatetime`) VALUES
 (13, 'a', 0, 'aa', 'http://www.railway-bento.com.tw/wp-content/uploads/2013/10/014%E6%BB%B7%E9%A6%99%E9%9B%9E%E8%85%BF%E9%A3%AF.jpg', '雞腿', 10, '0000-00-00 00:00:00'),
 (14, 'b', 1, 'bb', 'http://2.bp.blogspot.com/-cxUwl5Oz0T0/VnqsHm5gbMI/AAAAAAAAE3w/nOv5stQ5E9A/s1600/IMG_0930.jpg', '雞排', 20, '0000-00-00 00:00:00'),
-(16, 'c', 2, 'cc', 'http://www.fanchuan.com.tw/templates/cache/946/images/products/photooriginal-946-9448.JPG', '噁心', 30, '0000-00-00 00:00:00');
+(16, 'c', 2, 'cc', 'https://ptp.sfaa.gov.tw/store//product/A0600070174.jpg', '噁心', 30, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -227,7 +224,7 @@ ALTER TABLE `todaymenu`
 -- 使用資料表 AUTO_INCREMENT `balance`
 --
 ALTER TABLE `balance`
-  MODIFY `BalanceID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `BalanceID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- 使用資料表 AUTO_INCREMENT `deposit`
 --
@@ -237,7 +234,7 @@ ALTER TABLE `deposit`
 -- 使用資料表 AUTO_INCREMENT `members`
 --
 ALTER TABLE `members`
-  MODIFY `MemberID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `MemberID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- 使用資料表 AUTO_INCREMENT `selectmembers`
 --

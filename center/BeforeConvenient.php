@@ -9,7 +9,6 @@
     $SQuantity = $value["SQuantity"];//數量
     $STotal = $value["STotal"];//總價
     $SDatetimes = $value["SDatetimes"];//訂購日期
-    $Balance = $value["Balance"];//訂購日期
 
     echo "
       <tr>
@@ -19,7 +18,6 @@
         <td>$SQuantity</td>
         <td>$STotal</td>
         <td>$SDatetimes</td>
-        <td>$Balance</td>
       </tr>
     ";
   }
