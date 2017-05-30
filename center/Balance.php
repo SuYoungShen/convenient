@@ -25,7 +25,7 @@
   //                   $cc = $bb->fetchAll();
 // var_dump($c);
   // $ShowDeposit = json_decode($Deposit_Json, true);//存款(SqlCenterApi.php)
-  $ShowBalance = json_decode($Balance_Json, true);//之前訂購的便當,有包含餘額ㄎ(SqlCenterApi.php)
+  // $ShowBalance = json_decode($Balance_Json, true);//之前訂購的便當,有包含餘額ㄎ(SqlCenterApi.php)
 
   // foreach ($ShowDeposit as $key => $value) {
   //   $DDatetime[$key] = $value["DDatetime"];//存款日期

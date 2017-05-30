@@ -11,6 +11,7 @@
         <?php
           if ($_SERVER["PHP_SELF"] == "/convenient/center.php") {
             echo "<a class='navbar-brand' href='./''>".$TodayStoreName="首頁";
+
           }else{
             echo "<a class='navbar-brand' href='#''>".$TodayStoreName;
           }
@@ -32,6 +33,7 @@
                   }
                 ?>
               ~你好~~
+
               <span class="glyphicon glyphicon-user"></span><span class="caret"></span></h4>
             </button>
             <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dLabel">
@@ -39,6 +41,7 @@
                 if ($_SERVER["PHP_SELF"] == "/convenient/center.php") {
                   echo "
                     <li><a href='#'>更改密碼</a></li>
+                    <li>所剩餘額".$ShowBalance[$c-1]["Balance"]."</li>
                     <li role='separator' class='divider'></li>
                     <li><a href='login.html'>登出</a></li>
                   ";

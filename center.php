@@ -31,6 +31,12 @@
   <!-- Latest compiled and minified JavaScript -->
   <?php
     include 'center/SqlCenterApi.php';//查詢的資料在這已json
+    // echo "<pre>";
+    // print_r($ShowBalance = json_decode($Balance_Json, true));
+    // echo "</pre>";
+    $c = count($ShowBalance = json_decode($Balance_Json, true));//之前訂購的便當,有包含餘額(SqlCenterApi.php)
+    
+
    ?>
 </head>
 
