@@ -31,11 +31,11 @@
   <!-- Latest compiled and minified JavaScript -->
   <?php
     include 'center/SqlCenterApi.php';//查詢的資料在這已json
-    // echo "<pre>";
-    // print_r($ShowBalance = json_decode($Balance_Json, true));
-    // echo "</pre>";
-    $c = count($ShowBalance = json_decode($Balance_Json, true));//之前訂購的便當,有包含餘額(SqlCenterApi.php)
-    
+  
+    $ShowDeposit = json_decode($Deposit_Json, true); //存款明細的json,true轉為陣列,用在center/Deposit.php
+    $ShowBalance = json_decode($Balance_Json, true);//餘額的明細json,true轉為陣列,用在center/Balance.php
+    $Show_B_C = json_decode($BC_Json, true);//曾經訂購握的便當json,true轉為陣列,用在center/BalanceConvenient.php
+    $BalanceCount = count($ShowBalance);//算出餘額總共有幾筆資料,用在header.php
 
    ?>
 </head>
@@ -186,3 +186,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 </body>
 </html>
+<?php
+  $db = null;
+ ?>

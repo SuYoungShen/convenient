@@ -41,6 +41,9 @@
 
   include 'bcs/mysql/connect.php';//資料庫連線
   include 'todaymenu/todaymenu.php';//本日菜單的程式
+  include 'center/SqlCenterApi.php';//查詢的資料在這已json
+  $ShowBalance = json_decode($Balance_Json, true);//餘額的明細json,true轉為陣列,用在center/Balance.php
+  $BalanceCount = count($ShowBalance);//算出餘額總共有幾筆資料,用在header.php
 
  ?>
  <script type="text/javascript">
@@ -171,3 +174,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 </body>
 </html>
+<?php
+  $db = null;
+ ?>

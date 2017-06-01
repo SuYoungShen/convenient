@@ -1,5 +1,4 @@
 <?php
-  $Show_B_C = json_decode($BC_Json, true);//
 
   foreach ($Show_B_C as $key => $value) {//列出所有曾經訂購過的便當
 

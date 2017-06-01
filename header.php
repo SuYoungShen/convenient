@@ -22,6 +22,11 @@
     <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
+          <button class="btn btn-danger">
+            <h4><?php echo "所剩餘額".$ShowBalance[$BalanceCount-1]["Balance"]; ?></h4>
+          </button>
+        </li>
+        <li>
           <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <h4>
@@ -32,8 +37,7 @@
                     echo $_SESSION["login_name"] = "(會員名)";
                   }
                 ?>
-              ~你好~~
-
+              ~你好
               <span class="glyphicon glyphicon-user"></span><span class="caret"></span></h4>
             </button>
             <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dLabel">
@@ -41,7 +45,6 @@
                 if ($_SERVER["PHP_SELF"] == "/convenient/center.php") {
                   echo "
                     <li><a href='#'>更改密碼</a></li>
-                    <li>所剩餘額".$ShowBalance[$c-1]["Balance"]."</li>
                     <li role='separator' class='divider'></li>
                     <li><a href='login.html'>登出</a></li>
                   ";
