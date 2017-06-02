@@ -2,9 +2,18 @@
 include '../bcs/mysql/connect.php';
 
 //新增便當
-$insert = function($db, $convenient, $price, $number, $total){
+$insert = function($db, $convenient, $price, $number, $total, $datetime){
 
-  $Insert_SelectMember = "INSERT INTO `selectmembers`(`SConvenient`, `SPrice`, `SQuantity`, `STotal`, `SM`, `STodayStore`) VALUES ('".$convenient."','".$price."','".$number."','".$total."','1','18')";
+  $Insert_SelectMember = "
+                          INSERT INTO
+                                    `selectmembers`(
+                                                    `SConvenient`, `SPrice`, `SQuantity`, `STotal`,
+                                                    `SM`, `STodayStore`, `SDatetimes`
+                                                    )
+                                            VALUES (
+                                                    '".$convenient."','".$price."','".$number."','".$total."',
+                                                    '1', '18', '".$datetime."'
+                                                    )";
 
   $Query_SelectMember = $db->query($Insert_SelectMember);
   return $Query_SelectMember;
@@ -14,7 +23,7 @@ $insert = function($db, $convenient, $price, $number, $total){
 if (isset($_POST["submit_IConvenient"]) && empty($_POST["submit_IConvenient"])) {//判斷是否有送出
 
   $true = isset($_POST["cp"]) && !empty($_POST["cp"]) && //判斷便當有無值與不等於空
-          isset($_POST["number"]) && !empty($_POST["number"]) &&//判斷數量有無值與不等於空
+          isset($_POST["number"]) && !empty($_POST["number"] && $_POST["number"] >= 0 ) &&//判斷數量有無值與不等於空
           isset($_POST["name"]) && !empty($_POST["name"]);//判斷我是誰有無值與不等於空
 
   if ($true == true) {
@@ -24,7 +33,9 @@ if (isset($_POST["submit_IConvenient"]) && empty($_POST["submit_IConvenient"])) 
       $number = $_POST["number"];//數量
       $total = $price * $number;//總價
 
-     if(($insert($db, $convenient, $price, $number, $total))){//判斷新增資料有沒有成功
+      date_default_timezone_set("Asia/Taipei");
+      $datetime = date("Y/m/d H:i:s");
+     if(($insert($db, $convenient, $price, $number, $total, $datetime))){//判斷新增資料有沒有成功
        echo "
         <script>
           alert('訂購成功');
