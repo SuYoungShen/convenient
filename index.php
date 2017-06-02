@@ -48,8 +48,8 @@
  ?>
  <script type="text/javascript">
    $(document).ready(function() {
-     $("form").focus(function(event) {
-       $("form").validate({
+     $("form").click(function() {
+      $("form").validate({
          rules:{
            name: "required",
            number:{
@@ -62,6 +62,13 @@
            number:"必填"
          }
        });
+
+      //  $("#cp").blur(function(){
+      //    //  $("input").css("border-color","red");
+      //    if($(this).val() != ""){
+      //      $("#cp-error").text("");
+      //    }
+      //  });
      });
    });
  </script>
@@ -113,7 +120,7 @@
               <h3>選擇便當</h3>
               <div class="col-sm-8 col-xs-12">
                 <!-- Single button -->
-                <select class="selectpicker" data-style="btn-danger" name="CP" title="請選擇"><!-- CP = convenient price-->
+                <select class="selectpicker" data-style="btn-danger" name="cp" id="cp" title="請選擇"><!-- CP = convenient price-->
                   <optgroup label="便當+價位">
                     <?php
                       foreach ($ShowStoreIn as $key => $value) {
@@ -129,7 +136,7 @@
             <div class="form-group">
               <div class="col-md-8 col-xs-12">
                 <h3>數量...?</h3>
-                <input type="number" class="form-control" name="number" id="number" placeholder="請輸入數量" required="required">
+                <input type="number" class="form-control" name="number" id="number" placeholder="請輸入數量" required="required"><!--required="required"-->
               </div>
             </div>
 
@@ -150,7 +157,20 @@
 
             <div class="form-group">
               <div class="col-sm-2 col-xs-5">
-                <button type="submit" class="btn btn-success" name="submit_IConvenient">送出</button>
+                <!-- <button type='submit' class='btn btn-success' id='submit_IConvenient' name='submit_IConvenient'>送出</button> -->
+                <script type="text/javascript">
+                  button_status = function(status){
+                    input = "<button type='submit' class='btn btn-success'" +status+ "id='submit_IConvenient' name='submit_IConvenient'>送出</button>";
+                    document.write(input);
+                  };
+
+                  if(Balance <= 60){//當餘額少於
+                    status = "disabled='disabled'";
+                    button_status(status);
+                  }else{
+                    button_status();
+                  }
+                </script>
               </div>
             </div>
           </div>

@@ -19,31 +19,35 @@ $Deposit = function($db){
 };//存款金額
 
 $Before_Convenient = function($db){
-  $SelectBC = "
-                SELECT
-                      s.SConvenient, s.SPrice, s.SQuantity, s.STotal,
-                      s.SDatetimes, b.Balance, b.BDatetime, t.TodayStoreName
-                FROM
-                      selectmembers AS s,
-                      balance AS b,
-                      todaymenu AS t
-              WHERE
-                      s.SDatetimes = b.BDatetime
-              AND
-                      s.SM = '1'
-              AND
-                      b.MemberID='1'
-              AND
-                      s.STodayStore = t.TodayID
-              ";
   // $SelectBC = "
   //               SELECT
-  //                 todaymenu.TodayStoreName, selectmembers.SConvenient, selectmembers.SPrice, selectmembers.SQuantity, selectmembers.STotal, selectmembers.SDatetimes
+  //                     s.SConvenient, s.SPrice, s.SQuantity, s.STotal,
+  //                     s.SDatetimes, b.Balance, b.BDatetime, t.TodayStoreName
   //               FROM
-  //                 `todaymenu`,selectmembers
-  //               WHERE
-  //                 selectmembers.SM = '1' AND STodayStore=TodayID
+  //                     selectmembers AS s,
+  //                     balance AS b,
+  //                     todaymenu AS t
+  //             WHERE
+  //                     s.SDatetimes = b.BDatetime
+  //             AND
+  //                     s.SM = '1'
+  //             AND
+  //                     b.MemberID='1'
+  //             AND
+  //                     s.STodayStore = t.TodayID
   //             ";
+  $SelectBC = "
+                SELECT
+                  t.TodayStoreName, s.SConvenient, s.SPrice,
+                  s.SQuantity, s.STotal, s.SDatetimes
+                FROM
+                  `todaymenu` AS t,
+                  `selectmembers` AS s
+                WHERE
+                  s.SM = '1'
+                AND
+                  s.STodayStore = t.TodayID
+              ";
   $QuBC = $db->query($SelectBC);
   $Show = $QuBC->fetchAll();
   return $Show;
@@ -64,6 +68,7 @@ if ($_SERVER['PHP_SELF'] == $url) {//判斷網址，此API是被引入還是直�
   // echo '$_SERVER[PHP_SELF]='.$_SERVER["PHP_SELF"]."<br/>";
   // echo '$_SERVER[REUQEST_URI]='.$_SERVER['REQUEST_URI']."<br/>";
   include '../bcs/mysql/connect.php';
+
   $SelectDeposit = $Deposit($db);//存款金額
   $SelectBC = $Before_Convenient($db);//查詢曾經訂購過的便當
   $SelectBalance = $Balance($db);//查尋餘額

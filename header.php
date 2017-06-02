@@ -23,7 +23,19 @@
       <ul class="nav navbar-nav">
         <li>
           <button class="btn btn-danger">
-            <h4><?php echo "所剩餘額".$ShowBalance[$BalanceCount-1]["Balance"]; ?></h4>
+            <h4>
+              <?php
+                echo "所剩餘額：".$ShowBalance[$BalanceCount-1]["Balance"]."元";
+                echo "<script>Balance = '".$ShowBalance[$BalanceCount-1]["Balance"]."';</script>";
+                if ($ShowBalance[$BalanceCount-1]["Balance"] <= 60) {
+                  echo "
+                    <script>
+                      alert('餘額已經少於60，該儲值了黑~~~');
+                    </script>
+                  ";
+                }
+              ?>
+            </h4>
           </button>
         </li>
         <li>
