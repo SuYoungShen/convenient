@@ -30,8 +30,10 @@
   <script src="js/bootstrap.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <?php
+    session_start();
+
     include 'center/SqlCenterApi.php';//查詢的資料在這已json
-  
+
     $ShowDeposit = json_decode($Deposit_Json, true); //存款明細的json,true轉為陣列,用在center/Deposit.php
     $ShowBalance = json_decode($Balance_Json, true);//餘額的明細json,true轉為陣列,用在center/Balance.php
     $Show_B_C = json_decode($BC_Json, true);//曾經訂購握的便當json,true轉為陣列,用在center/BalanceConvenient.php
@@ -172,6 +174,32 @@
 
   <hr>
 
+  <div class="modal fade" id="ChangePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">更改密碼</h4>
+        </div>
+        <div class="modal-body">
+          <form action="https://tw.yahoo.com/" method="post">            
+            <div class="form-group">
+              <label for="new_password" class="control-label">新密碼:</label>
+              <input type="password" class="form-control" id="new_password" name="new_password">
+            </div>
+            <div class="form-group">
+              <label for="agin_new_password" class="control-label">再輸入一次密碼:</label>
+              <input type="password" class="form-control" id="agin_new_password" name="agin_new_password">
+            </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">關閉</button>
+            <button type="submit" class="btn btn-danger" name="submit_change_password">更改</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <!-- Footer -->
   <footer>
     <div class="row">

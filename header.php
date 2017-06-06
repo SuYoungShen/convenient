@@ -56,7 +56,7 @@
               <?php
                 if ($_SERVER["PHP_SELF"] == "/convenient/center.php") {
                   echo "
-                    <li><a href='#'>更改密碼</a></li>
+                    <li><a href='#' data-toggle='modal' data-target='#ChangePassword' data-whatever='@getbootstrap'>更改密碼</a></li>
                     <li role='separator' class='divider'></li>
                     <li><a href='login.html'>登出</a></li>
                   ";
